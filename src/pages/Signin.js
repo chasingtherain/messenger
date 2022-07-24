@@ -25,6 +25,7 @@ function SignIn() {
                 <button className='btn btn-primary btn-wide my-2'>Sign In</button>
                 {error && <p className='text-red-400'>{error}</p>}
                 <Link to="/sign-up" className='text-secondary mt-4'>Sign Up Instead</Link>
+                <Link to="/forgot-password" className='text-secondary mt-4'>Forgot Password</Link>
             </div>
         </div>
     </div>
