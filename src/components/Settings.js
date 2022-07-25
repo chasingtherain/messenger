@@ -3,9 +3,15 @@ import { GoKebabVertical } from 'react-icons/go';
 
 function Settings() {
   return (
-      <button onClick={()=> console.log("settings clicked")}>
-        <GoKebabVertical className='text-2xl mt-5 ml-32'/>
-      </button>
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="m-1">
+          <GoKebabVertical className='text-2xl mt-5 ml-32'/>
+          </label>
+        <ul tabindex="0" class="dropdown-content menu p-2 border-2 border-slate-600 shadow-lg bg-base-100 rounded-box w-52">
+          <li><a>Settings</a></li>
+          <li><a>My Profile</a></li>
+        </ul>
+      </div>
   )
 }
 

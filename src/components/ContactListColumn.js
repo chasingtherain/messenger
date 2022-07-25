@@ -5,6 +5,7 @@ import Settings from './Settings'
 import { AiOutlineUserAdd } from "react-icons/ai";
 import ContactRow from './ContactRow';
 import AddFriendModal from './Modal/AddFriendModal';
+import NewChatModal from './Modal/NewChatModal';
 
 
 
@@ -21,7 +22,10 @@ function ContactListColumn() {
           <SeachBar placeholder="Search..."/>
           <div className='flex justify-between mt-4'>
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>
-            <AddFriendModal/>
+            <div className='flex flex-row gap-5'>
+              <AddFriendModal/>
+              <NewChatModal/>
+            </div>
           </div>
           <div className='overflow-auto h-[32rem]'>
             <ContactRow name="Mario" profileName="M"/>

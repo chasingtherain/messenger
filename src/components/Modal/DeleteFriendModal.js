@@ -19,7 +19,7 @@ function DeleteFriendModal() {
                     <p className='text-center text-lg font-medium my-2'>Confirm?</p>
                     <div className='flex justify-center content-center gap-4'>
                         <button className='btn btn-secondary w-1/2 rounded-md'>Yes</button>
-                        <button className='btn btn-primary w-1/2 rounded-md'>No</button>
+                        <button className='btn btn-primary w-1/2 rounded-md' onClick={()=>{document.getElementById('my-modal-4').checked = false}}>No</button>
                     </div>
                 </div>
             </div>
