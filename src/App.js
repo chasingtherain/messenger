@@ -1,6 +1,6 @@
 import React from 'react';
 import SignUp from './pages/Signup';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from './pages/Signin';
 import ResetPassword from './pages/ResetPassword';
 import MainScreen from './components/MainScreen';

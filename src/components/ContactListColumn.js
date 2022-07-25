@@ -10,7 +10,7 @@ import Modal from './Modal';
 function ContactListColumn() {
   return (
     <div>
-      <div class="card w-full min-w-[60%] min-h-screen bg-base-100 shadow-xl">
+      <div class="w-full min-w-[60%] min-h-screen bg-base-100 shadow-xl">
         <div class="card-body">
           <div className='flex justify-between'>
             <BubbleProfile initial="JP" name="Jerome Powell" bubbleWidth="w-16" nameTextSize="text-2xl" status="online"/>

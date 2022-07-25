@@ -1,13 +1,13 @@
 import React from 'react'
 import ContactListColumn from './ContactListColumn'
-import MessageBoard from './MessageBoard'
+import BoardHeader from './Messageboard/BoardHeader'
 
 function MainScreen() {
   return (
     <div className='flex flex-row'>
         {/* flex row format */}
         <ContactListColumn/>
-        <MessageBoard/>
+        <BoardHeader/>
     </div>
   )
 }
