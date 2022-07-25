@@ -14,11 +14,11 @@ function ContactListColumn() {
     <div>
       <div class="w-full min-w-[60%] bg-base-100 shadow-xl overflow-auto">
         <div class="card-body">
-          <div className='flex justify-between'>
+          <div className='flex justify-between border-slate-500'>
             <BubbleProfile initial="JP" name="Jerome Powell" bubbleWidth="w-16" nameTextSize="text-2xl" status="online"/>
             <Settings/>
           </div>
-          <p className='text-2xl mt-4'>Messages</p>
+          <p className='text-2xl'>Messages</p>
           <SeachBar placeholder="Search..."/>
           <div className='flex justify-between mt-4'>
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>

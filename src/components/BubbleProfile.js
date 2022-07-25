@@ -9,7 +9,7 @@ function BubbleProfile({initial, name, bubbleWidth, nameTextSize, status}) {
                     <span className="text-xl">{initial}</span>
                 </div>
             </button> 
-            <p className={`${nameTextSize} mt-4 ml-4`}>{name}</p>
+            <p className={`${nameTextSize} mt-4 ml-4 w-48`}>{name}</p>
         </div>
     </div>
   )

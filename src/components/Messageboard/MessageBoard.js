@@ -5,9 +5,9 @@ import BoardHeader from './BoardHeader'
 
 function MessageBoard() {
   return (
-    <div className='min-w-[75%] min-h-fit bg-slate-200 ml-5 mt-0'>
+    <div className='min-w-[70%] min-h-fit bg-slate-200 mt-0'>
         <BoardHeader/>
-        <div className="divider mt-0"></div>
+        <div className="divider m-0"></div>
         <BoardBody/>
         <BoardFooter/>
     </div>
