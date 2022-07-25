@@ -11,7 +11,7 @@ import AddFriendModal from './Modal/AddFriendModal';
 function ContactListColumn() {
   return (
     <div>
-      <div class="w-full min-w-[60%] min-h-screen bg-base-100 shadow-xl">
+      <div class="w-full min-w-[60%] bg-base-100 shadow-xl overflow-auto">
         <div class="card-body">
           <div className='flex justify-between'>
             <BubbleProfile initial="JP" name="Jerome Powell" bubbleWidth="w-16" nameTextSize="text-2xl" status="online"/>
@@ -23,13 +23,22 @@ function ContactListColumn() {
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>
             <AddFriendModal/>
           </div>
-          <ContactRow name="Mario" profileName="M"/>
-          <ContactRow name="Luigi" profileName="L"/>
-          <ContactRow name="Bowser" profileName="B"/>
-          <ContactRow name="Peach" profileName="P"/>
-          <ContactRow name="Luigi" profileName="L"/>
-          <ContactRow name="Bowser" profileName="B"/>
-          <ContactRow name="Peach" profileName="P"/>
+          <div className='overflow-auto h-[32rem]'>
+            <ContactRow name="Mario" profileName="M"/>
+            <ContactRow name="Luigi" profileName="L"/>
+            <ContactRow name="Bowser" profileName="B"/>
+            <ContactRow name="Peach" profileName="P"/>
+            <ContactRow name="Luigi" profileName="L"/>
+            <ContactRow name="Bowser" profileName="B"/>
+            <ContactRow name="Peach" profileName="P"/>
+            <ContactRow name="Mario" profileName="M"/>
+            <ContactRow name="Luigi" profileName="L"/>
+            <ContactRow name="Bowser" profileName="B"/>
+            <ContactRow name="Peach" profileName="P"/>
+            <ContactRow name="Luigi" profileName="L"/>
+            <ContactRow name="Bowser" profileName="B"/>
+            <ContactRow name="Peach" profileName="P"/>
+          </div>
         </div>
       </div>
     </div>
