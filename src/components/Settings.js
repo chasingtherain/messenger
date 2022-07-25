@@ -3,7 +3,9 @@ import { GoKebabVertical } from 'react-icons/go';
 
 function Settings() {
   return (
-      <GoKebabVertical className='text-2xl mt-5' onClick={()=> console.log("settings clicked")}/>
+      <button onClick={()=> console.log("settings clicked")}>
+        <GoKebabVertical className='text-2xl mt-5 ml-32'/>
+      </button>
   )
 }
 

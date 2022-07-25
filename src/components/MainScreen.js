@@ -4,7 +4,7 @@ import MessageBoard from './MessageBoard'
 
 function MainScreen() {
   return (
-    <div>
+    <div className='flex flex-row'>
         {/* flex row format */}
         <ContactListColumn/>
         <MessageBoard/>

@@ -3,7 +3,7 @@ import SignUp from './pages/Signup';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SignIn from './pages/Signin';
 import ResetPassword from './pages/ResetPassword';
-import ContactListColumn from './components/ContactListColumn';
+import MainScreen from './components/MainScreen';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Routes>
             <Route path='/sign-up' element={<SignUp/>}/>
             <Route path='/sign-in' element={<SignIn/>}/>
-            <Route path='/' element={<ContactListColumn/>}/>
+            <Route path='/' element={<MainScreen/>}/>
             <Route path='/forgot-password' element={<ResetPassword/>}/>
         </Routes>
       </Router>

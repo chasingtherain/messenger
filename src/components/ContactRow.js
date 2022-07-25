@@ -12,7 +12,7 @@ function ContactRow({name,profileName}) {
           </div> 
           <div className='flex-col ml-4 mt-1'>
             <p className='text-slate-600'>{name}</p>
-            <p className='text-slate-500'>How is it going Biden?</p>
+            <p className='text-slate-500'>How is it going mate?</p>
           </div>
         </div>
       </div>

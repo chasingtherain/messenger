@@ -1,15 +1,15 @@
 import React from 'react'
 
-function BubbleProfile() {
+function BubbleProfile({initial, name, bubbleWidth, nameTextSize, status}) {
   return (
     <div className='flex justify-between'>
         <div className='flex'>
-            <div class="avatar online placeholder">
-                <div class="bg-neutral-focus text-neutral-content rounded-full w-16">
-                    <span class="text-xl">JP</span>
+            <button className={`avatar ${status} placeholder`}>
+                <div className={`bg-neutral-focus text-neutral-content rounded-full ${bubbleWidth}`}>
+                    <span className="text-xl">{initial}</span>
                 </div>
-            </div> 
-            <p className='text-2xl mt-4 ml-4'>Jerome Powell</p>
+            </button> 
+            <p className={`${nameTextSize} mt-4 ml-4`}>{name}</p>
         </div>
     </div>
   )

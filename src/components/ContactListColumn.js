@@ -4,21 +4,23 @@ import SeachBar from './SeachBar'
 import Settings from './Settings'
 import { AiOutlineUserAdd } from "react-icons/ai";
 import ContactRow from './ContactRow';
+import Modal from './Modal';
+
 
 function ContactListColumn() {
   return (
     <div>
-      <div class="card w-6/12 min-h-screen bg-base-100 shadow-xl ">
+      <div class="card w-full min-w-[60%] min-h-screen bg-base-100 shadow-xl">
         <div class="card-body">
           <div className='flex justify-between'>
-            <BubbleProfile/>
+            <BubbleProfile initial="JP" name="Jerome Powell" bubbleWidth="w-16" nameTextSize="text-2xl" status="online"/>
             <Settings/>
           </div>
           <p className='text-2xl mt-4'>Messages</p>
-          <SeachBar/>
+          <SeachBar placeholder="Search..."/>
           <div className='flex justify-between mt-4'>
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>
-            <AiOutlineUserAdd className='text-2xl'/>
+            <Modal/>
           </div>
           <ContactRow name="Mario" profileName="M"/>
           <ContactRow name="Luigi" profileName="L"/>
