@@ -1,9 +1,9 @@
 import React from 'react'
 import { AiOutlineUserAdd } from 'react-icons/ai'
-import AddFriendProfile from './AddFriendProfile'
-import SeachBar from './SeachBar'
+import AddFriendProfile from '../AddFriendProfile'
+import SeachBar from '../SeachBar'
 
-function Modal() {
+function AddFriendModal() {
     return (
         <div>
             {/* <!-- The button to open modal --> */}
@@ -24,4 +24,4 @@ function Modal() {
     )
 }
 
-export default Modal
+export default AddFriendModal

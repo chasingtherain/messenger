@@ -4,7 +4,8 @@ import SeachBar from './SeachBar'
 import Settings from './Settings'
 import { AiOutlineUserAdd } from "react-icons/ai";
 import ContactRow from './ContactRow';
-import Modal from './Modal';
+import AddFriendModal from './Modal/AddFriendModal';
+
 
 
 function ContactListColumn() {
@@ -20,7 +21,7 @@ function ContactListColumn() {
           <SeachBar placeholder="Search..."/>
           <div className='flex justify-between mt-4'>
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>
-            <Modal/>
+            <AddFriendModal/>
           </div>
           <ContactRow name="Mario" profileName="M"/>
           <ContactRow name="Luigi" profileName="L"/>
