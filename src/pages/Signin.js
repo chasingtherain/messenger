@@ -5,9 +5,10 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom';
 import {GoogleButton} from 'react-google-button'
 import axios from 'axios';
+import { useMessengerContext } from '../hooks/useMessengerContext';
 
 function SignIn() {
-    // const {dispatch, googleLoading, loginWithGoogleRedirect} = useAuthContext()
+    const {updateCurrentUser} = useMessengerContext()
     const [userEmail, setUserEmail] = useState("")
     const [userPassword, setUserPassword] = useState("")
     const [error, setError] = useState("")
@@ -16,17 +17,12 @@ function SignIn() {
     const validateSignIn = async (e) => {
         e.preventDefault()
         try {
-            console.log(userEmail,userPassword)
-            const userInfo = {email: userEmail, password: userPassword}
-            console.log(JSON.stringify(userInfo))
-            const res = await axios({
-                method: 'get',
-                url: "http://api.sideprojectschool.com:3000/api/user/login", 
-                data: JSON.stringify(userInfo), 
-                headers: {"Content-type": "application/json; charset=UTF-8"}
-            });
-            console.log(res)
-            
+            const res = await axios.post(
+                "http://api.sideprojectschool.com:3000/api/user/login", 
+                {email: userEmail, password: userPassword}
+            );
+            console.log(res.data.data.user_id)
+            updateCurrentUser(res.data.data.user_id)
             if(res.status === 200) navigate('/')
         } catch (err) {
             console.log(err)

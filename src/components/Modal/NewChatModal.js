@@ -1,10 +1,9 @@
 import React from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
-import AddFriendProfile from '../AddFriendProfile'
 import BubbleProfile from '../BubbleProfile'
 import SeachBar from '../SeachBar'
 
-function NewChatModal() {
+function NewChatModal({friendList}) {
     return (
         <div>
             {/* <!-- The button to open modal --> */}

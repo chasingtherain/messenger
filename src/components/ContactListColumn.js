@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BubbleProfile from './BubbleProfile'
 import SeachBar from './SeachBar'
 import Settings from './Settings'
-import { AiOutlineUserAdd } from "react-icons/ai";
 import ContactRow from './ContactRow';
 import AddFriendModal from './Modal/AddFriendModal';
 import NewChatModal from './Modal/NewChatModal';
-
+import { useMessengerContext } from '../hooks/useMessengerContext';
+import axios from 'axios';
 
 
 function ContactListColumn() {
+  const {currentUser} = useMessengerContext()
+  const [friendList,setFriendList] = useState([])
+
+  useEffect(()=> {if(currentUser) fetchFriendList(currentUser)},[currentUser])
+
+  const fetchFriendList = async (userId) => {
+    const res = await axios.post(
+      "http://api.sideprojectschool.com:3000/api/user/friends", 
+      {"user_id": userId}
+    )
+    console.log(res.data.data.friends)
+    setFriendList(res.data.data.friends)
+  }
+
   return (
     <div>
       <div class="w-full min-w-[60%] bg-base-100 shadow-xl overflow-auto">
@@ -24,7 +38,7 @@ function ContactListColumn() {
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>
             <div className='flex flex-row gap-5'>
               <AddFriendModal/>
-              <NewChatModal/>
+              <NewChatModal friendList={friendList}/>
             </div>
           </div>
           <div className='overflow-auto h-[32rem]'>
