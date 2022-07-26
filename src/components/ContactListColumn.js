@@ -12,8 +12,27 @@ import axios from 'axios';
 function ContactListColumn() {
   const {currentUser} = useMessengerContext()
   const [friendList,setFriendList] = useState([])
+  const [currentUserInfo,setCurrentUserInfo] = useState([])
+  const [currentUserName,setCurrentUserName] = useState("")
+  const [currentUserInitial,setCurrentUserInitial] = useState("")
 
-  useEffect(()=> {if(currentUser) fetchFriendList(currentUser)},[currentUser])
+  useEffect(()=> {
+    if(currentUser){
+      fetchUserInfo(currentUser)
+      fetchFriendList(currentUser)
+    }},[currentUser])
+
+  const fetchUserInfo = async (userId) => {
+    const res = await axios.post(
+      "http://api.sideprojectschool.com:3000/api/user/user_info", 
+      {"user_id": userId}
+    )
+    const capitalisedFirstName = res.data.data.first_name[0].toUpperCase() + res.data.data.first_name.slice(1)
+    console.log(res.data.data)
+    setCurrentUserInfo(res.data.data)
+    setCurrentUserName(res.data.data.first_name[0].toUpperCase())
+    setCurrentUserInitial(capitalisedFirstName)
+  }
 
   const fetchFriendList = async (userId) => {
     const res = await axios.post(
@@ -29,7 +48,12 @@ function ContactListColumn() {
       <div class="w-full min-w-[60%] bg-base-100 shadow-xl overflow-auto">
         <div class="card-body">
           <div className='flex justify-between border-slate-500'>
-            <BubbleProfile initial="JP" name="Jerome Powell" bubbleWidth="w-16" nameTextSize="text-2xl" status="online"/>
+            {currentUser && <BubbleProfile 
+              initial= {currentUserName} 
+              name={currentUserInitial} 
+              bubbleWidth="w-16" 
+              nameTextSize="text-2xl" 
+              status="online"/>}
             <Settings/>
           </div>
           <p className='text-2xl'>Messages</p>
