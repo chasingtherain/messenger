@@ -1,9 +1,11 @@
 import React from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
+import { useMessengerContext } from '../../hooks/useMessengerContext'
 import BubbleProfile from '../BubbleProfile'
 import SeachBar from '../SeachBar'
 
 function NewChatModal({friendList}) {
+    const {capitaliseFirstName, capitaliseInitial} = useMessengerContext()
     const fakeFriendList = [
         {
             "user_id": "abcdef",
@@ -40,7 +42,7 @@ function NewChatModal({friendList}) {
                     {
                         fakeFriendList.map((friend, index) => (
                             <div className='card-body bg-slate-400 py-2 mt-2 rounded-md'>
-                                <BubbleProfile initial={friend.first_name} name={friend.first_name} bubbleWidth="w-14" nameTextSize="text-lg"/>
+                                <BubbleProfile initial={capitaliseInitial(friend.first_name)} name={capitaliseFirstName(friend.first_name)} bubbleWidth="w-14" nameTextSize="text-lg"/>
                             </div>
                         ))
                         // friendList.map((friend, index) => <BubbleProfile initial="JC" name="John Cena" bubbleWidth="w-14" nameTextSize="text-lg"/>)

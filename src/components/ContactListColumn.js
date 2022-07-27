@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
 function ContactListColumn() {
-  const {currentUser} = useMessengerContext()
+  const {currentUser, capitaliseFirstName, capitaliseInitial}  = useMessengerContext()
   const [friendList,setFriendList] = useState([])
   const [currentUserInfo,setCurrentUserInfo] = useState([])
   const [currentUserName,setCurrentUserName] = useState("")
@@ -27,11 +27,10 @@ function ContactListColumn() {
       "http://api.sideprojectschool.com:3000/api/user/user_info", 
       {"user_id": userId}
     )
-    const capitalisedFirstName = res.data.data.first_name[0].toUpperCase() + res.data.data.first_name.slice(1)
     console.log(res.data.data)
     setCurrentUserInfo(res.data.data)
-    setCurrentUserName(res.data.data.first_name[0].toUpperCase())
-    setCurrentUserInitial(capitalisedFirstName)
+    setCurrentUserName(capitaliseInitial(res.data.data.first_name))
+    setCurrentUserInitial(capitaliseFirstName(res.data.data.first_name))
   }
 
   const fetchFriendList = async (userId) => {
