@@ -12,7 +12,9 @@ import axios from 'axios';
 function ContactListColumn() {
   const {currentUser, currentUserName, currentUserInitial, capitaliseFirstName, capitaliseInitial, friendList, currentUserInfo,setCurrentUserInfo}  = useMessengerContext()
   const [searchTerm, setSearchTerm] = useState("")
-
+  console.log("currentUser", currentUser)
+  console.log("currentUserName",currentUserName)
+  console.log("currentUserInitial", currentUserInitial)
   return (
     <div>
       <div class="w-full min-w-[60%] bg-base-100 shadow-xl overflow-auto">

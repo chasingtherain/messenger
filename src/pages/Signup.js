@@ -3,9 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import {toast } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css'
+import { useMessengerContext } from '../hooks/useMessengerContext';
 
 function SignUp() {
-    // const {dispatch, googleLoading, loginWithGoogleRedirect} = useAuthContext()
+    const {endpointBaseUrl} = useMessengerContext()
     const [userEmail, setUserEmail] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -59,7 +60,7 @@ function SignUp() {
 
     const sendFormDataToServer = async () => {
         const res = await axios.post(
-            "http://api.sideprojectschool.com:3000/api/user/create", 
+            `${endpointBaseUrl}/api/user/create`, 
             { email: userEmail, first_name: firstName, last_name: lastName, password: userPassword, password_confirm: confirmUserPassword}
         );
         console.log(res)

@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useMessengerContext } from '../hooks/useMessengerContext';
 
 function SignIn() {
-    const {updateCurrentUser} = useMessengerContext()
+    const {endpointBaseUrl, updateCurrentUser} = useMessengerContext()
     const [userEmail, setUserEmail] = useState("")
     const [userPassword, setUserPassword] = useState("")
     const [error, setError] = useState("")
@@ -18,8 +18,7 @@ function SignIn() {
         e.preventDefault()
         try {
             const res = await axios.post(
-                // "http://api.sideprojectschool.com:3000/api/user/login", 
-                "http://ec2-3-39-59-37.ap-northeast-2.compute.amazonaws.com:3000/api/user/login", 
+                `${endpointBaseUrl}/api/user/login`, 
                 {email: userEmail, password: userPassword}
             );
             console.log(res.data.data.user_id)

@@ -4,6 +4,7 @@ import React, { createContext, useEffect, useState } from 'react'
 export const MessengerContext = createContext()
 
 export const MessengerContextProvider = ({children}) => {
+    const endpointBaseUrl = "http://ec2-3-39-59-37.ap-northeast-2.compute.amazonaws.com:3000"
     const [currentUser, setCurrentUser] = useState("")
     const [friendList, setFriendList] = useState([])
     const [currentUserInfo,setCurrentUserInfo] = useState([])
@@ -19,7 +20,7 @@ export const MessengerContextProvider = ({children}) => {
     
       const fetchUserInfo = async (userId) => {
         const res = await axios.post(
-          "http://api.sideprojectschool.com:3000/api/user/user_info", 
+          `${endpointBaseUrl}/api/user/user_info`, 
           {"user_id": userId}
         )
         console.log(res.data.data)
@@ -30,10 +31,10 @@ export const MessengerContextProvider = ({children}) => {
     
       const fetchFriendList = async (userId) => {
         const res = await axios.post(
-          "http://api.sideprojectschool.com:3000/api/user/friends", 
+          `${endpointBaseUrl}/api/user/friends`, 
           {"user_id": userId}
         )
-        console.log(res.data.data.friends)
+        // console.log(res.data.data.friends)
         setFriendList(res.data.data.friends)
       }
 
@@ -50,6 +51,9 @@ export const MessengerContextProvider = ({children}) => {
     return (
         <MessengerContext.Provider value={{
             currentUser,
+            currentUserName,
+            currentUserInitial,
+            endpointBaseUrl,
             friendList,
             capitaliseFirstName,
             capitaliseInitial,
