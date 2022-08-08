@@ -1,8 +1,11 @@
 import React from 'react'
+import { useMessengerContext } from '../hooks/useMessengerContext'
 
-function ContactRow({name,profileName}) {
+function ContactRow({lastMessage,name,profileName}) {
+  const {selectedChat, setSelectedChat} = useMessengerContext()
+
   return (
-    <div class="card-compact full-w bg-base-300 rounded-sm">
+    <div class="card-compact full-w bg-base-300 rounded-sm border-2 border-slate-100" onClick={() => setSelectedChat(name)}>
       <div class="card-body">
         <div className='flex'>
           <div class="avatar placeholder">
@@ -12,7 +15,7 @@ function ContactRow({name,profileName}) {
           </div> 
           <div className='flex-col ml-4 mt-1'>
             <p className='text-slate-600'>{name}</p>
-            <p className='text-slate-500'>How is it going mate?</p>
+            <p className='text-slate-500'>{lastMessage}</p>
           </div>
         </div>
       </div>

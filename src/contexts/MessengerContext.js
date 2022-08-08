@@ -8,10 +8,11 @@ export const MessengerContextProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState("")
     const [friendList, setFriendList] = useState([])
     const [currentUserInfo,setCurrentUserInfo] = useState([])
+    const [selectedChat, setSelectedChat] = useState("")
     const [currentUserName,setCurrentUserName] = useState("")
     const [currentUserInitial,setCurrentUserInitial] = useState("")
     
-    // upon login, system will fetch user's info and friend list
+    // upon login, system will fetch user's info, friend list and active chat list
     useEffect(()=> {
         if(currentUser){
           fetchUserInfo(currentUser)
@@ -38,6 +39,15 @@ export const MessengerContextProvider = ({children}) => {
         setFriendList(res.data.data.friends)
       }
 
+      const fetchActiveChat = async (userId) => {
+        const res = await axios.post(
+          `${endpointBaseUrl}/api/user/friends`, 
+          {"user_id": userId}
+        )
+        // console.log(res.data.data.friends)
+        setFriendList(res.data.data.friends)
+      }
+
     const updateCurrentUser = (user) => {
         setCurrentUser(user)
     }
@@ -55,10 +65,12 @@ export const MessengerContextProvider = ({children}) => {
             currentUserInitial,
             endpointBaseUrl,
             friendList,
+            selectedChat,
             capitaliseFirstName,
             capitaliseInitial,
             setCurrentUser,
             setFriendList,
+            setSelectedChat,
             updateCurrentUser
             }}>
             {children}
