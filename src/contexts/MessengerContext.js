@@ -1,10 +1,42 @@
-import React, { createContext, useState } from 'react'
+import axios from 'axios'
+import React, { createContext, useEffect, useState } from 'react'
 
 export const MessengerContext = createContext()
 
 export const MessengerContextProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState("")
+    const [friendList, setFriendList] = useState([])
+    const [currentUserInfo,setCurrentUserInfo] = useState([])
+    const [currentUserName,setCurrentUserName] = useState("")
+    const [currentUserInitial,setCurrentUserInitial] = useState("")
     
+    // upon login, system will fetch user's info and friend list
+    useEffect(()=> {
+        if(currentUser){
+          fetchUserInfo(currentUser)
+          fetchFriendList(currentUser)
+        }},[currentUser])
+    
+      const fetchUserInfo = async (userId) => {
+        const res = await axios.post(
+          "http://api.sideprojectschool.com:3000/api/user/user_info", 
+          {"user_id": userId}
+        )
+        console.log(res.data.data)
+        setCurrentUserInfo(res.data.data)
+        setCurrentUserName(capitaliseInitial(res.data.data.first_name))
+        setCurrentUserInitial(capitaliseFirstName(res.data.data.first_name))
+      }
+    
+      const fetchFriendList = async (userId) => {
+        const res = await axios.post(
+          "http://api.sideprojectschool.com:3000/api/user/friends", 
+          {"user_id": userId}
+        )
+        console.log(res.data.data.friends)
+        setFriendList(res.data.data.friends)
+      }
+
     const updateCurrentUser = (user) => {
         setCurrentUser(user)
     }
@@ -18,9 +50,11 @@ export const MessengerContextProvider = ({children}) => {
     return (
         <MessengerContext.Provider value={{
             currentUser,
+            friendList,
             capitaliseFirstName,
             capitaliseInitial,
             setCurrentUser,
+            setFriendList,
             updateCurrentUser
             }}>
             {children}

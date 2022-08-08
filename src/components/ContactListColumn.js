@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BubbleProfile from './BubbleProfile'
-import SeachBar from './SeachBar'
+import SearchBar from './SearchBar'
 import Settings from './Settings'
 import ContactRow from './ContactRow';
 import AddFriendModal from './Modal/AddFriendModal';
@@ -10,37 +10,8 @@ import axios from 'axios';
 
 
 function ContactListColumn() {
-  const {currentUser, capitaliseFirstName, capitaliseInitial}  = useMessengerContext()
-  const [friendList,setFriendList] = useState([])
-  const [currentUserInfo,setCurrentUserInfo] = useState([])
-  const [currentUserName,setCurrentUserName] = useState("")
-  const [currentUserInitial,setCurrentUserInitial] = useState("")
-
-  useEffect(()=> {
-    if(currentUser){
-      fetchUserInfo(currentUser)
-      fetchFriendList(currentUser)
-    }},[currentUser])
-
-  const fetchUserInfo = async (userId) => {
-    const res = await axios.post(
-      "http://api.sideprojectschool.com:3000/api/user/user_info", 
-      {"user_id": userId}
-    )
-    console.log(res.data.data)
-    setCurrentUserInfo(res.data.data)
-    setCurrentUserName(capitaliseInitial(res.data.data.first_name))
-    setCurrentUserInitial(capitaliseFirstName(res.data.data.first_name))
-  }
-
-  const fetchFriendList = async (userId) => {
-    const res = await axios.post(
-      "http://api.sideprojectschool.com:3000/api/user/friends", 
-      {"user_id": userId}
-    )
-    console.log(res.data.data.friends)
-    setFriendList(res.data.data.friends)
-  }
+  const {currentUser, currentUserName, currentUserInitial, capitaliseFirstName, capitaliseInitial, friendList, currentUserInfo,setCurrentUserInfo}  = useMessengerContext()
+  const [searchTerm, setSearchTerm] = useState("")
 
   return (
     <div>
@@ -56,12 +27,12 @@ function ContactListColumn() {
             <Settings/>
           </div>
           <p className='text-2xl'>Messages</p>
-          <SeachBar placeholder="Search..."/>
+          <SearchBar placeholder="Search..."/>
           <div className='flex justify-between mt-4'>
             <p className='text-slate-400 text-sm'>DIRECT MESSAGES</p>
             <div className='flex flex-row gap-5'>
               <AddFriendModal/>
-              <NewChatModal friendList={friendList}/>
+              <NewChatModal friendList={friendList} searchTerm={searchTerm}/>
             </div>
           </div>
           <div className='overflow-auto h-[32rem]'>

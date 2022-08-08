@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineUserAdd } from 'react-icons/ai'
 import AddFriendProfile from '../AddFriendProfile'
-import SeachBar from '../SeachBar'
+import SearchBar from '../SearchBar'
 
 function AddFriendModal() {
+    const [searchTerm, setSearchTerm] = useState("")
+
+    let friendsList = [
+        {
+            "user_id": "abcdef",
+            "first_name": "Kyle",
+            "last_name": "Jung",
+            "prof_pic_url": "url"
+        },
+        {
+            "user_id": "aasfdsdafa",
+            "first_name": "Sam",
+            "last_name": "Ha",
+            "prof_pic_url": "url"
+        },
+        {
+            "user_id": "asdfne",
+            "first_name": "Sepjo",
+            "last_name": "Choi",
+            "prof_pic_url": "url"
+        }
+    ]
+    console.log("searchTerm", searchTerm)
     return (
         <div>
             {/* <!-- The button to open modal --> */}
@@ -15,8 +38,8 @@ function AddFriendModal() {
                 <div class="modal-box relative">
                     <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 class="text-lg font-bold mb-4">Add a New Friend</h3>
-                    <SeachBar placeholder="Search by email or username"/>
-                    <AddFriendProfile/>
+                    <SearchBar placeholder="Search by email or username" setSearchTerm={setSearchTerm}/>
+                    <AddFriendProfile friendsList={friendsList} searchTerm={searchTerm}/>
                 </div>
             </div>
         </div>
