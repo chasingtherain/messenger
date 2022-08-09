@@ -1,5 +1,6 @@
 import React from 'react'
 import { GoKebabVertical } from 'react-icons/go';
+import EditProfileModal from './Modal/EditProfileModal';
 
 function Settings() {
   return (
@@ -9,7 +10,7 @@ function Settings() {
           </label>
         <ul tabindex="0" class="dropdown-content menu p-2 border-2 border-slate-600 shadow-lg bg-base-100 rounded-box w-52">
           <li><a>Settings</a></li>
-          <li><a>My Profile</a></li>
+          <li><a>Edit Profile</a></li>
         </ul>
       </div>
   )

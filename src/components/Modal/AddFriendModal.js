@@ -26,7 +26,7 @@ function AddFriendModal() {
             "prof_pic_url": "url"
         }
     ]
-    console.log("searchTerm", searchTerm)
+    
     return (
         <div>
             {/* <!-- The button to open modal --> */}
