@@ -1,9 +1,8 @@
-import { current } from 'daisyui/src/colors'
 import React from 'react'
 import { useMessengerContext } from '../hooks/useMessengerContext'
 import ContactListColumn from './ContactListColumn'
-import BlankBoard from './Messageboard/BlankBoard'
 import MessageBoard from './Messageboard/MessageBoard'
+import BlankBoard from './Messageboard/BlankBoard'
 
 function MainScreen() {
   const {currentUser, selectedChat} = useMessengerContext()

@@ -6,6 +6,7 @@ import ResetPassword from './pages/ResetPassword';
 import MainScreen from './components/MainScreen';
 import PrivateRoute from './components/PrivateRoute';
 import PageNotFound from './pages/PageNotFound';
+import EditProfilePage from './pages/EditProfilePage';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
             <Route path='/sign-in' element={<SignIn/>}/>
             <Route path='/' element={<PrivateRoute/>}>
               <Route path='/' element={<MainScreen/>}/>
+            </Route>
+            <Route path="/edit-profile" element={<PrivateRoute/>}>
+              <Route path="/edit-profile" element={<EditProfilePage/>}/>
             </Route>
             <Route path="/*" element={<PageNotFound/>}/>
             <Route path='/forgot-password' element={<ResetPassword/>}/>

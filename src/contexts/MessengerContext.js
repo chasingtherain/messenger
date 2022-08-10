@@ -13,6 +13,7 @@ export const MessengerContextProvider = ({children}) => {
     const [currentUserInitial,setCurrentUserInitial] = useState("")
     
     // upon login, system will fetch user's info, friend list and active chat list
+    console.log(currentUserInfo)
     useEffect(()=> {
         if(currentUser){
           fetchUserInfo(currentUser)
@@ -56,11 +57,13 @@ export const MessengerContextProvider = ({children}) => {
       }
     
     const capitaliseInitial = (firstName) => {
-        return firstName[0].toUpperCase()
+        if(firstName) return firstName[0].toUpperCase()
+        else return null
     }
     return (
         <MessengerContext.Provider value={{
             currentUser,
+            currentUserInfo,
             currentUserName,
             currentUserInitial,
             endpointBaseUrl,
@@ -68,6 +71,7 @@ export const MessengerContextProvider = ({children}) => {
             selectedChat,
             capitaliseFirstName,
             capitaliseInitial,
+            fetchUserInfo,
             setCurrentUser,
             setFriendList,
             setSelectedChat,
