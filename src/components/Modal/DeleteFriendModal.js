@@ -4,14 +4,14 @@ import axios from 'axios'
 import { useMessengerContext } from '../../hooks/useMessengerContext'
 
 function DeleteFriendModal() {
-    const {endpointBaseUrl} = useMessengerContext()
+    const {currentUserInfo, endpointBaseUrl} = useMessengerContext()
 
-    const deleteFriend = async (userId, friendId) => {
+    const deleteFriend = async (friendId) => {
         console.log("friend deleted")
         try {
             await axios.post(
                 `${endpointBaseUrl}/api/user/user_info`, 
-                {"user_id": userId, "friend_id": friendId}
+                {"user_id": currentUserInfo.userId, "friend_id": friendId}
               )
         } catch (error) {
             console.log(error)   

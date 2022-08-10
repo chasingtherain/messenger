@@ -51,6 +51,7 @@ function NewChatModal({friendList}) {
                             ))
                         // friendList.map((friend, index) => <BubbleProfile initial="JC" name="John Cena" bubbleWidth="w-14" nameTextSize="text-lg"/>)
                     }
+
                 </div>
             </div>
         </div>

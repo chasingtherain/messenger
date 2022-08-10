@@ -8,7 +8,7 @@ function AddFriendModal() {
 
     let friendsList = [
         {
-            "user_id": "abcdef",
+            "user_id": "feed2f1d-5985-4c61-9034-a75a637e4b00",
             "first_name": "Kyle",
             "last_name": "Jung",
             "prof_pic_url": "url"

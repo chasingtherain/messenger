@@ -12,13 +12,11 @@ function EditProfilePage() {
     const userId = currentUserInfo.user_id
 
     const handleFirstNameUpdate = (e) => {
-        console.log(e.target.value)
         setFirstName(e.target.value)
         setIsDisabled(false)
     }
 
     const handleLastNameUpdate = (e) => {
-        console.log(e.target.value)
         setLastName(e.target.value)
         setIsDisabled(false)
     }

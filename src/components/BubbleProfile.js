@@ -1,10 +1,10 @@
 import React from 'react'
 
-function BubbleProfile({initial, name, bubbleWidth, nameTextSize, status}) {
+function BubbleProfile({id, initial, name, bubbleWidth, nameTextSize, status}) {
   return (
     <div className='flex justify-between'>
         <div className='flex'>
-            <button className={`avatar ${status} placeholder`}>
+            <button className={`avatar ${status} placeholder`} id={id}>
                 <div className={`bg-neutral-focus text-neutral-content rounded-full ${bubbleWidth}`}>
                     <span className="text-xl">{initial}</span>
                 </div>

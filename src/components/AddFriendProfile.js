@@ -1,9 +1,27 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { useMessengerContext } from '../hooks/useMessengerContext'
 import BubbleProfile from './BubbleProfile'
 
 function AddFriendProfile({initial, name, bubbleWidth, friendsList, searchTerm}) {
-  const {capitaliseInitial} = useMessengerContext()
+  const {capitaliseInitial, currentUserInfo, endpointBaseUrl} = useMessengerContext()
+  const [friendRequestSent, setFriendRequestSent] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  const handleAddFriend = async (friendId) => {
+    console.log("attempting to add friend...")
+    setIsDisabled(true)
+    try {
+        console.log(friendId)
+        await axios.post(
+            `${endpointBaseUrl}/api/user/add_friend`, 
+            {"user_id": currentUserInfo.user_id, "friend_id": friendId}
+          )
+        setFriendRequestSent(true)
+    } catch (error) {
+        console.log(error)   
+    }
+  }
 
   return (
     <div>
@@ -20,19 +38,17 @@ function AddFriendProfile({initial, name, bubbleWidth, friendsList, searchTerm})
                         bubbleWidth="w-12" 
                         nameTextSize="text-lg"
                       />
-                      <button className="badge badge-primary mt-4">Add friend</button>
+                      <button 
+                        className={"badge badge-primary mt-4"}
+                        disabled = {isDisabled}
+                        onClick={() => handleAddFriend(friend.user_id)}
+                      >
+                        Add friend</button>
               </div>
             </div>
             )
           )
       }
-
-        <div class="card-compact full-w bg-base-300 rounded-sm my-2">
-            <div class="card-body flex-row justify-between">
-                    <BubbleProfile initial="JL" name="John Luna" bubbleWidth="w-12" nameTextSize="text-lg"/>
-                    <button className="badge badge-primary mt-4">Add friend</button>
-            </div>
-        </div>
     </div>
   )
 }
