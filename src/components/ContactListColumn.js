@@ -20,7 +20,7 @@ function ContactListColumn() {
     {
       "prof_pic_url": "https://media-exp1.licdn.com/dms/image/C5603AQF4jWeLThSkUg/profile-displayphoto-shrink_800_800/0/1657605776404?e=1663804800&v=beta&t=DXJFkWa--PNjm0FSVcFANtzTISlzOHt0KHfeesquda0",
       "last_sent_user_name": "Mustafa",
-      "last_message": "Hey there, how are you?",
+      "last_message": "Wen moon?",
       "last_message_time": "2022-07-20T15:55:03",
       "session_other_user": "Mustafa",
       "session_id": "abb292b6-5cab-48e0-b27b-fc0198201c9b"
@@ -28,7 +28,7 @@ function ContactListColumn() {
     {
       "prof_pic_url": "https://i.pinimg.com/236x/6a/a7/8a/sdfdsfsd.jpg",
       "last_sent_user_name": "Kyle",
-      "last_message": "Message2",
+      "last_message": "I am reaching in 2mins",
       "last_message_time": "2022-07-20T15:59:48",
       "session_other_user": "aaaa",
       "session_id": "9d56a067-1a02-48c5-ad8d-8c9c31239128"
@@ -36,7 +36,7 @@ function ContactListColumn() {
     {
       "prof_pic_url": "https://i.pinimg.com/236x/6a/a7/8a/sdfdsfsd.jpg",
       "last_sent_user_name": "Cena",
-      "last_message": "Message3",
+      "last_message": "You can't see me",
       "last_message_time": "2022-07-20T15:57:48",
       "session_other_user": "aaaa",
       "session_id": "9d56a067-1a02-48c5-ad8d-8c9c31239128"

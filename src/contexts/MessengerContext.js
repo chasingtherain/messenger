@@ -5,12 +5,18 @@ export const MessengerContext = createContext()
 
 export const MessengerContextProvider = ({children}) => {
     const endpointBaseUrl = "http://ec2-3-39-59-37.ap-northeast-2.compute.amazonaws.com:3000"
-    const [currentUser, setCurrentUser] = useState("")
+    const mockUser = {
+      "user_id": "feed2f1d-5985-4c61-9034-a75a637e4b00",
+      "email": "kylejung92@gmail.com",
+      "first_name": "Jun",
+      "last_name": "Peng"
+  }
+    const [currentUser, setCurrentUser] = useState(mockUser)
     const [friendList, setFriendList] = useState([])
     const [currentUserInfo,setCurrentUserInfo] = useState([])
     const [selectedChat, setSelectedChat] = useState("")
-    const [currentUserName,setCurrentUserName] = useState("")
-    const [currentUserInitial,setCurrentUserInitial] = useState("")
+    const [currentUserName,setCurrentUserName] = useState("JP")
+    const [currentUserInitial,setCurrentUserInitial] = useState("Joseph Powell")
     
     // upon login, system will fetch user's info, friend list and active chat list
     console.log(currentUserInfo)
@@ -26,9 +32,9 @@ export const MessengerContextProvider = ({children}) => {
           {"user_id": userId}
         )
         console.log(res.data.data)
-        setCurrentUserInfo(res.data.data)
-        setCurrentUserName(capitaliseInitial(res.data.data.first_name))
-        setCurrentUserInitial(capitaliseFirstName(res.data.data.first_name))
+        setCurrentUserInfo(mockUser)
+        setCurrentUserName(capitaliseInitial("Joseph Powell"))
+        setCurrentUserInitial(capitaliseFirstName("Joseph"))
       }
     
       const fetchFriendList = async (userId) => {
@@ -53,7 +59,8 @@ export const MessengerContextProvider = ({children}) => {
         setCurrentUser(user)
     }
     const capitaliseFirstName = (firstName) => {
-        return firstName[0].toUpperCase() + firstName.slice(1)
+      console.log(firstName)
+        return firstName
       }
     
     const capitaliseInitial = (firstName) => {

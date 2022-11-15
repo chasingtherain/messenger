@@ -31,7 +31,7 @@ function EditProfilePage() {
             console.log(res.data)
             if(res.status === 200) toast.success("profile updated!")
             setIsDisabled(true)
-            fetchUserInfo(userId)
+            // fetchUserInfo(userId)
         } catch (err) {
             console.log(err)
             console.log(err.response.data)
@@ -40,7 +40,7 @@ function EditProfilePage() {
 
     return (
     <div>
-        <Link to="/">Back home</Link>
+        <Link to="/"><button className='btn btn-black rounded-md'>Back home</button></Link>
         <div class="flex h-screen py-36 px-8 bg-white">
             <div class="mx-auto w-full max-w-lg">
                 <h1 class="text-4xl font-medium">Edit Your Profile</h1>
